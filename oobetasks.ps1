@@ -1,4 +1,4 @@
-$scriptFolderPath = "$env:SystemDrive\OSDCloud\Scripts"
+$scriptFolderPath = "$env:SystemDrive\NDI\Scripts"
 $ScriptPathOOBE = $(Join-Path -Path $scriptFolderPath -ChildPath "OOBE.ps1")
 $ScriptPathSendKeys = $(Join-Path -Path $scriptFolderPath -ChildPath "SendKeys.ps1")
 
