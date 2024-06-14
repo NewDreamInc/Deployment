@@ -19,12 +19,7 @@ Start-Sleep -Seconds 4
 # Shift + F10
 Write-Host -ForegroundColor DarkGray "SendKeys: SHIFT + F10"
 `$WscriptShell.SendKeys("+({F10})")
-"@
 
-Out-File -FilePath $ScriptPathSendKeys -InputObject $SendKeysScript -Encoding ascii
-
-# Download ServiceUI.exe
-Write-Host -ForegroundColor Gray "Download ServiceUI.exe from GitHub Repo"
 Invoke-WebRequest https://github.com/AkosBakos/Tools/raw/main/ServiceUI64.exe -OutFile "C:\NDI\ServiceUI.exe"
 
 Write-Host -ForegroundColor Gray "Downloading Auto.zip and QC.zip from GitHub Repo"
@@ -33,6 +28,14 @@ Invoke-WebRequest https://github.com/NewDreamInc/Deployment/raw/main/East_Coast/
 
 Expand-Archive C:\QC.zip -DestinationPath C:\QC
 Expand-Archive C:\Auto.zip -DestinationPath C:\Auto
+
+"@
+
+Out-File -FilePath $ScriptPathSendKeys -InputObject $SendKeysScript -Encoding ascii
+
+# Download ServiceUI.exe
+Write-Host -ForegroundColor Gray "Download ServiceUI.exe from GitHub Repo"
+
 #Create Scheduled Task for SendKeys with 15 seconds delay
 $TaskName = "Scheduled Task for SendKeys"
 
