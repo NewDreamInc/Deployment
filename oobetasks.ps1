@@ -27,6 +27,12 @@ Out-File -FilePath $ScriptPathSendKeys -InputObject $SendKeysScript -Encoding as
 Write-Host -ForegroundColor Gray "Download ServiceUI.exe from GitHub Repo"
 Invoke-WebRequest https://github.com/AkosBakos/Tools/raw/main/ServiceUI64.exe -OutFile "C:\NDI\ServiceUI.exe"
 
+Write-Host -ForegroundColor Gray "Downloading Auto.zip and QC.zip from GitHub Repo"
+Invoke-WebRequest https://github.com/NewDreamInc/Deployment/raw/main/East_Coast/Auto.zip -OutFile "C:\Auto.zip"
+Invoke-WebRequest https://github.com/NewDreamInc/Deployment/raw/main/East_Coast/QC.zip -OutFile "C:\QC.zip"
+
+Expand-Archive C:\QC.zip -DestinationPath C:\QC
+Expand-Archive C:\Auto.zip -DestinationPath C:\Auto
 #Create Scheduled Task for SendKeys with 15 seconds delay
 $TaskName = "Scheduled Task for SendKeys"
 
