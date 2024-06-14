@@ -7,8 +7,6 @@ If(!(Test-Path -Path $scriptFolderPath)) {
 }
 
 $SendKeysScript = @"
-`$Global:Transcript = "`$((Get-Date).ToString('yyyy-MM-dd-HHmmss'))-SendKeys.log"
-
 Write-Host -ForegroundColor DarkGray "Stop Debug-Mode (SHIFT + F10) with WscriptShell.SendKeys"
 `$WscriptShell = New-Object -com Wscript.Shell
 
@@ -21,8 +19,6 @@ Start-Sleep -Seconds 1
 # Shift + F10
 Write-Host -ForegroundColor DarkGray "SendKeys: SHIFT + F10"
 `$WscriptShell.SendKeys("+({F10})")
-
-Stop-Transcript -Verbose | Out-File
 "@
 
 Out-File -FilePath $ScriptPathSendKeys -InputObject $SendKeysScript -Encoding ascii
